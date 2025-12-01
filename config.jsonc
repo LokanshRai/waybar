@@ -45,7 +45,7 @@
         "max-length": 8
     },
     "bluetooth": {
-        "format": " {status}",
+        "format": " {status}",
         "format-disabled": "",
         "format-connected": " {device_alias}",
         "max-length": 8,
