@@ -1,7 +1,7 @@
 @import 'colors.css';
 
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans Semibold", Roboto, Helvetica, Arial, sans-serif, "Material Icons";
     border: none;
     border-radius: 0px;
 }
@@ -23,7 +23,7 @@ window#waybar {
     -webkit-backdrop-filter: blur(2.4px);
 }
 
-.modules-right {
+/* .modules-right {
     background-color: @surface;
     border-radius: 12px;
     background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
@@ -34,9 +34,9 @@ window#waybar {
     margin:10px;
     -webkit-backdrop-filter: blur(2.4px);
     box-shadow: 1 1 5 1px @shadow;
-}
+} */
 
-.modules-center {
+/* .modules-center {
     background-color: @surface;
     border-radius: 12px;
     background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
@@ -46,7 +46,7 @@ window#waybar {
     margin:10px;
     box-shadow: 1 1 5 1px @shadow;    
     -webkit-backdrop-filter: blur(70px);
-}
+} */
 
 label.module {
     font-size: 14px;
@@ -65,11 +65,20 @@ label.module {
         linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
     border-radius: 10px;
     border: 0px solid transparent;	
+} */
+
+.modules-right label.module:hover,
+.modules-center label.module:hover {
+    font-size: 14px;
+    color: @on_surface;
+    padding:3px 10px;
+    transition: all 0.3s ease-out;    
+    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
+        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
+    border-radius: 10px;
+    border: 0px solid transparent;	
 }
 
-label.module:hover {
-}
-*/
 
 /* -----------------------------------------------------
  * Workspaces
@@ -129,17 +138,15 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-    padding: 5px 0px 5px 0px;
+
 }
 
 #taskbar button {
-    border-radius: 6px;
-    padding:0px 5px 0px 5px;
+
 }
 
 #taskbar button:hover {
-    background:@primary;
-    color:@on_primary;    
+
 }
 
 #taskbar.empty {

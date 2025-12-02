@@ -1,10 +1,18 @@
 {
     "layer": "top",
     "spacing": 4, //4 is the default value
-    "modules-left": [], //idk put something here at some point
+    "modules-left": ["wlr/taskbar"], //idk put something here at some point
     "modules-center": ["hyprland/workspaces"],
     "modules-right": ["bluetooth","network","battery","clock"],
+    
+    //left modules
+    "wlr/taskbar": {
+        "all-outputs": false,
+        "active-first": false,
+        "sort-by-app-id": true
+    },
 
+    //middle modules
     "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -39,6 +47,8 @@
     },
     "sort-by-number": true
     },
+
+    //right modules
     "network": {
         "interval": 1,
         "format": "{ifname}",
