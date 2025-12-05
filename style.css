@@ -10,44 +10,6 @@ window#waybar {
     background:transparent;
 }
 
-.modules-left {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding:0px;
-    margin:10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
-}
-
-/* .modules-right {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding:0px;
-    margin:10px;
-    -webkit-backdrop-filter: blur(2.4px);
-    box-shadow: 1 1 5 1px @shadow;
-} */
-
-/* .modules-center {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    margin:10px;
-    box-shadow: 1 1 5 1px @shadow;    
-    -webkit-backdrop-filter: blur(70px);
-} */
-
 label.module {
     font-size: 14px;
     margin-left: 8px;
@@ -55,19 +17,7 @@ label.module {
     border-radius: 5px;
 }
 
-/*
-label.module {
-    font-size: 14px;
-    color: @on_surface;
-    padding:3px 10px;
-    transition: all 0.3s ease-out;    
-    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
-        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
-    border-radius: 10px;
-    border: 0px solid transparent;	
-} */
-
-.modules-right label.module:hover,
+.modules-right  label.module:hover,
 .modules-center label.module:hover {
     font-size: 14px;
     color: @on_surface;
@@ -79,6 +29,40 @@ label.module {
     border: 0px solid transparent;	
 }
 
+/* -----------------------------------------------------
+ * Audio Visualizers
+ * ----------------------------------------------------- */
+#mpris {
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+#mpris:hover{
+    font-size: 14px;
+    color: @on_surface;
+    padding:3px 10px;
+    transition: all 0.3s ease-out;    
+    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
+        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
+    border-radius: 10px;
+    border: 0px solid transparent; 
+}
+
+
+#cava {
+    margin-left: 2px;
+}
+
+#cava:hover{
+    font-size: 14px;
+    color: @on_surface;
+    padding:3px 10px;
+    transition: all 0.3s ease-out;    
+    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
+        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
+    border-radius: 10px;
+    border: 0px solid transparent;
+}
 
 /* -----------------------------------------------------
  * Workspaces
@@ -146,7 +130,14 @@ window#waybar.empty #window {
 }
 
 #taskbar button:hover {
-
+    font-size: 14px;
+    color: @on_surface;
+    padding:3px 10px;
+    transition: all 0.3s ease-out;    
+    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
+        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
+    border-radius: 10px;
+    border: 0px solid transparent;
 }
 
 #taskbar.empty {
