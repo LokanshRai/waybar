@@ -1,23 +1,23 @@
 {
     "layer": "top",
     "spacing": 4, //4 is the default value
-    "modules-left": ["wlr/taskbar", "mpris", "cava"], //idk put something here at some point
+    "modules-left": ["wlr/taskbar", "mpris", "cava"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["bluetooth", "network", "battery", "clock"],
+    "modules-right": ["bluetooth", "network", "battery", "clock", "group/power"],
     
     //left modules
     "wlr/taskbar": {
-        "all-outputs": false,
-        "active-first": false,
-        "sort-by-app-id": true
+        "all-outputs": true,
+        "active-first": true,
+        "on-click": "activate",
+        "on-click-right": "close"
     },
     "mpris": {
         "interval": 1,
         "format": "{player_icon}",
         "format-paused": "{status_icon}",
         "player-icons": {
-            "default": "▶",
-            "mpv": "🎵"
+            "default": "▶"
 	    },
 	    "status-icons": {
 		    "paused": "⏸"
@@ -50,44 +50,51 @@
 
     //middle modules
     "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{name}",
     "on-click": "activate",
-    "format-icons": {
-        //uncomment below lines when I find better icons/setup for
-        //workspaces
-        // "0": "",
-        // "1": "",
-        // "2": "",
-        // "3": "",
-        // "4": "",
-        // "5": "",
-        // "6": "",
-        // "7": "",
-        // "8": "",
-        // "9": "",
-        "urgent": "",
-        "active": "",
-        "default": ""
-    },
     "persistent-workspaces": {
-        "0": "",
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "6": "",
-        "7": "",
-        "8": "",
-        "9": ""
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5"
+        // "6": "6",
+        // "7": "7",
+        // "8": "8",
+        // "9": "9"
     },
     "sort-by-number": true
     },
     //right modules
+    "group/power":{
+        "orientation": "inherit",
+        "modules": ["custom/power","custom/lock","custom/reboot"],
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+            "click-to-reveal": false
+        }
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false
+        // "on-click": "shutdown now"
+    },
+    "custom/lock": {
+        "format": "",
+        "tooltip": false
+        // "on-click": "swaylock"
+    },
+    "custom/reboot": {
+        "format": "",
+        "tooltip": false
+        // "on-click": "reboot"
+    },
     "network": {
         "interval": 1,
         "format": "{ifname}",
-        "format-wifi": " {essid} ({signalStrength}%) ",
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-disconnected": "",
         "max-length": 8
     },
@@ -100,30 +107,13 @@
     },
     "battery": {
         "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "rog-control-center & disown"
     },
     "clock": {
         "interval": 60, //default value
-        "format": "  {:%a, %d, %b, %I:%M %p}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "on-click": "kitty -e calcure",
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
+        "format": "{:%I:%M %p}",
+        "tooltip-format": "<tt><small>{:%a, %d, %b, %I:%M %p}</small></tt>",
+        "on-click": "kitty -e calcure"
     }
 }
