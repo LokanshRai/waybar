@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background:transparent;
+    background: black;
 }
 
 label.module {
@@ -17,59 +17,42 @@ label.module {
     border-radius: 5px;
 }
 
-.modules-right  label.module:hover,
-.modules-center label.module:hover {
-    font-size: 14px;
-    color: @on_surface;
-    padding:3px 10px;
-    transition: all 0.3s ease-out;    
-    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
-        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
-    border-radius: 10px;
-    border: 0px solid transparent;	
-}
-
 /* -----------------------------------------------------
- * Audio Visualizers
+ * Audio Left
  * ----------------------------------------------------- */
-#mpris {
-    margin-right: 2px;
-    margin-left: 2px;
+#audio-left{
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 0px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
 }
-
-#mpris:hover{
-    font-size: 14px;
-    color: @on_surface;
-    padding:3px 10px;
-    transition: all 0.3s ease-out;    
-    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
-        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
-    border-radius: 10px;
-    border: 0px solid transparent; 
-}
-
 
 #cava {
     margin-left: 2px;
 }
 
-#cava:hover{
-    font-size: 14px;
-    color: @on_surface;
-    padding:3px 10px;
-    transition: all 0.3s ease-out;    
-    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
-        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
-    border-radius: 10px;
-    border: 0px solid transparent;
-}
 
 /* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
 
 #workspaces {
-    padding: 5px 5px 5px 0px;
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding: 5px 5px 5px 5px;
+    margin:10px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
 }
 
 #workspaces button {
@@ -122,39 +105,70 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    margin:10px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
+}
 
+#taskbar button.active{
+    background:@primary;
+    color:@on_primary;
 }
 
 #taskbar button {
-
+    border-radius: 10px;
+    padding:0px 5px 0px 5px;
+    margin:0px 2px 0px 2px;
 }
 
-#taskbar button:hover {
-    font-size: 14px;
-    color: @on_surface;
-    padding:3px 10px;
-    transition: all 0.3s ease-out;    
-    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
-        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
-    border-radius: 10px;
-    border: 0px solid transparent;
+#taskbar button:hover{
+    background:@primary;
+    color:@on_primary; 
 }
 
 #taskbar.empty {
 }
 
 /* -----------------------------------------------------
- * ML4W Icon
+ * Audio Right
  * ----------------------------------------------------- */
 
-#custom-ml4w-welcome {
-    margin-top:5px;
-    margin-bottom:5px;
-    background-image: url("../assets/ml4w-icon.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    padding-right: 20px;
+#audio-right{
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 0px 10px 10px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
+}
+
+#pulseaudio {
+}
+
+#pulseaudio:hover {
+}
+
+#pulseaudio.muted {
+}
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+}
+
+#bluetooth:hover {
+}
+
+#bluetooth.off {
 }
 
 /* -----------------------------------------------------
@@ -167,67 +181,6 @@ window#waybar.empty #window {
 #idle_inhibitor.activated {
 }
 
-/* -----------------------------------------------------
- * App Launcher
- * ----------------------------------------------------- */
-
-#custom-appmenu {
-    padding-right:3px;
-    padding-left:5px;
-}
-
-#custom-appmenu:hover {
-}
-
-/* -----------------------------------------------------
- * Custom Now Playing
- * ----------------------------------------------------- */
-
-#custom-nowplaying {
-}
-
-#custom-nowplaying.playing {
-}
-
-#custom-nowplaying.paused {
-}
-
-/* -----------------------------------------------------
- * Custom Notification
- * ----------------------------------------------------- */
-
-#custom-notification {
-    font-size: 20px;
-    font-family: "Material Icons";
-    color: @icon_color;
-}
-
-/* -----------------------------------------------------
- * Custom Exit
- * ----------------------------------------------------- */
-
-#custom-exit {
-}
-
-/* -----------------------------------------------------
- * Custom Updates
- * ----------------------------------------------------- */
-
-#custom-updates.yellow {
-    border-radius: 20px;
-    margin:5px 0px 5px 5px;
-    padding:0px 4px 0px 4px;
-    background-color: @secondary;
-    color: @on_secondary;
-}
-
-#custom-updates.red {
-    border-radius: 6px;
-    margin:6px 0px 6px 7px;
-    padding:0px 6px 0px 6px;
-    background-color: @error;
-    color:@on_error;
-}
 
 /* -----------------------------------------------------
  * Hardware Group
@@ -251,34 +204,19 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    margin-left: 12px;
-    margin-right: 12px;
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 0px 10px 10px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
 }
 
 #clock:hover {
-}
-
-/* -----------------------------------------------------
- * Backlight
- * ----------------------------------------------------- */
-
-#backlight {
-}
-
-#backlight:hover {
-}
-
-/* -----------------------------------------------------
- * Pulseaudio
- * ----------------------------------------------------- */
-
-#pulseaudio {
-}
-
-#pulseaudio:hover {
-}
-
-#pulseaudio.muted {
 }
 
 /* -----------------------------------------------------
@@ -286,6 +224,16 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 0px 10px 10px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
 }
 
 #network.ethernet:hover {
@@ -301,23 +249,20 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Bluetooth
- * ----------------------------------------------------- */
-
-#bluetooth, #bluetooth.on, #bluetooth.connected {
-}
-
-#bluetooth:hover {
-}
-
-#bluetooth.off {
-}
-
-/* -----------------------------------------------------
  * Battery
  * ----------------------------------------------------- */
 
 #battery {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 0px 10px 10px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
 }
 
 #battery.charging, #battery.plugged {
@@ -338,13 +283,13 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    padding: 0px 5px 0px 10px;
+
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
+
 }
