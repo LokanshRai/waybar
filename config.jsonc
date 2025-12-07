@@ -7,7 +7,7 @@
     "spacing": 0,
     "modules-left": ["wlr/taskbar", "group/audio-left"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["group/audio-right", "network", "battery", "clock", "group/power"],
+    "modules-right": ["group/audio-right", "network", "clock", "group/power"],
 
     //left modules
     "wlr/taskbar": {
@@ -100,28 +100,12 @@
     },
     "group/power":{
         "orientation": "inherit",
-        "modules": ["custom/power","custom/lock","custom/reboot"],
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-power",
-            "transition-left-to-right": false,
-            "click-to-reveal": false
-        }
+        "modules": ["battery", "custom/power"]
     },
     "custom/power": {
         "format": "",
         "tooltip": false
         // "on-click": "shutdown now"
-    },
-    "custom/lock": {
-        "format": "",
-        "tooltip": false
-        // "on-click": "swaylock"
-    },
-    "custom/reboot": {
-        "format": "",
-        "tooltip": false
-        // "on-click": "reboot"
     },
     "network": {
         "interval": 1,
