@@ -104,8 +104,8 @@
     },
     "custom/power": {
         "format": "",
-        "tooltip": false
-        // "on-click": "shutdown now"
+        "tooltip": false,
+        "on-click": "wlogout"
     },
     "network": {
         "interval": 1,
