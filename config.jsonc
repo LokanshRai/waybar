@@ -6,7 +6,7 @@
     "margin-right": 8,
     "spacing": 0,
     "modules-left": ["wlr/taskbar", "group/audio-left"],
-    "modules-center": ["hyprland/workspaces","idle_inhibitor"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["group/audio-right", "network", "clock", "group/compute","group/power"],
 
     //left modules
@@ -67,13 +67,6 @@
         "5": "5"
     },
     "sort-by-number": true
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
     //right modules
     "group/compute":{
