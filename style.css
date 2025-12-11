@@ -155,6 +155,7 @@ window#waybar.empty #window {
 }
 
 #pulseaudio {
+    margin-right: 0px;
 }
 
 #pulseaudio:hover {
@@ -187,7 +188,19 @@ window#waybar.empty #window {
  * Hardware Group
  * ----------------------------------------------------- */
 
-#disk,#memory,#cpu,#language {
+#memory{
+    margin-left: 0px;
+    margin-right: 3px;
+}
+#cpu{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#temperature{
+    margin-right: 3px;
+}
+
+#disk,#language {
 }
 
 #language {
@@ -267,7 +280,7 @@ window#waybar.empty #window {
 }
 
 #battery {
-    
+    margin-right: 0px;
 }
 
 #battery.charging, #battery.plugged {

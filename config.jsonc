@@ -6,8 +6,8 @@
     "margin-right": 8,
     "spacing": 0,
     "modules-left": ["wlr/taskbar", "group/audio-left"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["group/audio-right", "network", "clock", "group/power"],
+    "modules-center": ["hyprland/workspaces","idle_inhibitor"],
+    "modules-right": ["group/audio-right", "network", "clock", "group/compute","group/power"],
 
     //left modules
     "wlr/taskbar": {
@@ -35,7 +35,6 @@
         // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
         "framerate": 60,
         "autosens": 1,
-        // "sensitivity": 40,
         "bars": 10,
         "lower_cutoff_freq": 40,
         "higher_cutoff_freq": 9000,
@@ -66,14 +65,34 @@
         "3": "3",
         "4": "4",
         "5": "5"
-        // "6": "6",
-        // "7": "7",
-        // "8": "8",
-        // "9": "9"
     },
     "sort-by-number": true
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
     //right modules
+    "group/compute":{
+        "orientation": "inherit",
+        "modules": ["temperature","memory","cpu"]
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "C {}%",
+        "max-length": 10
+    },
+    "temperature": {
+        "format": "T {temperatureC}°C /"
+    },
+    "memory": {
+        "interval": 30,
+        "format": "M {}% /",
+        "max-length": 10
+    },
     "group/audio-right":{
         "orientation": "inherit",
         "modules": ["pulseaudio", "bluetooth"]
@@ -129,7 +148,6 @@
     "clock": {
         "interval": 60, //default value
         "format": "{:%I:%M %p}",
-        "tooltip-format": "<tt><small>{:%a, %d, %b, %I:%M %p}</small></tt>",
-        "on-click": "kitty -e calcure"
+        "tooltip-format": "<tt><small>{:%a, %d, %b, %I:%M %p}</small></tt>"
     }
 }
