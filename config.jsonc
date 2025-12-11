@@ -124,14 +124,19 @@
         "format": "{ifname}",
         "format-wifi": " {essid} ({signalStrength}%)",
         "format-disconnected": "",
-        "max-length": 8
+        "max-length": 8,
+        "on-click": "kitty -e nmtui",
+        "on-click-right": "nm-connection-editor"
     },
     "bluetooth": {
         "format": " {status}",
-        "format-disabled": "",
+        "format-disabled": " off",
         "format-connected": " {device_alias}",
         "max-length": 8,
-        "tooltip-format-connected": " {device_alias}"
+        "tooltip-format-connected": " {device_alias}",
+        "on-click-middle": "blueman-manager",
+        "on-click": "bluetoothctl power on",
+        "on-click-right": "bluetoothctl power off"
     },
     "battery": {
         "format": "{capacity}% {icon}",
