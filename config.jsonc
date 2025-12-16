@@ -5,11 +5,18 @@
     "margin-left": 8,
     "margin-right": 8,
     "spacing": 0,
-    "modules-left": ["wlr/taskbar", "group/audio-left"],
+    "modules-left": [/*"wlr/taskbar"*/"group/taskbar-left", "group/audio-left"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": ["group/audio-right", "network", "clock", "group/compute","group/power"],
 
     //left modules
+    "group/taskbar-left": {
+        "orientation": "inherit",
+        "modules": ["custom/arch", "wlr/taskbar"]
+    },
+    "custom/arch":{
+        "format": "󰣇"
+    },
     "wlr/taskbar": {
         "all-outputs": true,
         "active-first": true,

@@ -1,7 +1,7 @@
 @import 'colors.css';
 
 * {
-    font-family: "Fira Sans Semibold", Roboto, Helvetica, Arial, sans-serif, "Material Icons";
+    font-family: "JetBrainsMono Nerd Font", "Fira Sans Semibold", Helvetica, Arial, sans-serif, "Material Icons";
     border: none;
     border-radius: 0px;
 }
@@ -105,7 +105,7 @@ window#waybar.empty #window {
  * Taskbar
  * ----------------------------------------------------- */
 
-#taskbar {
+#taskbar-left {
     background-color: @surface;
     border-radius: 12px;
     background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
@@ -136,6 +136,19 @@ window#waybar.empty #window {
 
 #taskbar.empty {
 }
+
+/* #custom-arch{
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    margin:10px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
+} */
 
 /* -----------------------------------------------------
  * Audio Right
