@@ -6,31 +6,24 @@
     border-radius: 0;
 }
 
-/* -----------------------------------------------------
- * ONE GLOBAL BOX (THE BAR ITSELF)
- * ----------------------------------------------------- */
 window#waybar {
     background-color: @surface;
     border: 1px solid alpha(@on_surface, 0.18);
     background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
         linear-gradient(@primary,@on_primary) border-box;
-    /* more box, less pill */
+
     border-radius: 3px;
 
-    /* outer spacing + inner spacing (fix squished top/bottom) */
     margin: 10px;
     padding: 8px 12px;
 
-    /* make the whole bar comfortably tall */
     min-height: 34px;
 
-    /* remove “pillow” feeling */
     box-shadow: none;
     -gtk-icon-shadow: none;
     -webkit-backdrop-filter: none;
 }
 
-/* Sometimes helps: the internal box GTK uses inside waybar */
 #waybar > box {
     padding: 0;
 }
@@ -138,7 +131,7 @@ label.module {
 
 #taskbar button {
     margin: 0 2px;
-    padding: 4px 8px;
+    padding: 4px 6px;
     border-radius: 3px;
 }
 
@@ -161,6 +154,10 @@ label.module {
 }
 
 #taskbar.empty {}
+
+#custom-arch {
+    padding-right: 5px;
+}
 
 /* -----------------------------------------------------
  * Small spacing tweaks you had
