@@ -89,13 +89,42 @@ label.module {
 }
 
 #workspaces button.active {
+    margin-top: 5px;    
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    border-radius: 3px; 
     background: @primary;
     color: @on_primary;
 }
 
 #workspaces button:hover {
+    margin-top: 5px;    
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    border-radius: 3px; 
     background: @primary;
     color: @on_primary;
+}
+
+#temperature{
+    padding-right: 0px;
+}
+#memory{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#cpu{
+    padding-left: 0px;
+}
+
+#battery{
+    padding-right: 0px;
+}
+#pulseaudio{
+    padding-right: 0px;
+}
+#cava{
+    padding-left: 0px;
 }
 
 /* -----------------------------------------------------
@@ -114,11 +143,19 @@ label.module {
 }
 
 #taskbar button.active {
+    margin-top: 5px;    
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    border-radius: 3px; 
     background: @primary;
     color: @on_primary;
 }
 
 #taskbar button:hover {
+    margin-top: 5px;    
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    border-radius: 3px; 
     background: @primary;
     color: @on_primary;
 }
