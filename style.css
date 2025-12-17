@@ -3,324 +3,147 @@
 * {
     font-family: "JetBrainsMono Nerd Font", "Fira Sans Semibold", Helvetica, Arial, sans-serif, "Material Icons";
     border: none;
-    border-radius: 0px;
-}
-
-window#waybar {
-    background: transparent;
-    /* color: @on_surface; */
-}
-
-label.module {
-    font-size: 14px;
-    margin-left: 8px;
-    margin-right: 8px;
-    border-radius: 5px;
+    border-radius: 0;
 }
 
 /* -----------------------------------------------------
- * Audio Left
+ * ONE GLOBAL BOX (THE BAR ITSELF)
  * ----------------------------------------------------- */
-#audio-left{
+window#waybar {
     background-color: @surface;
-    border-radius: 12px;
+    border: 1px solid alpha(@on_surface, 0.18);
     background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
         linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding: 5px 5px 5px 5px;
-    margin: 10px 10px 10px 0px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
+    /* more box, less pill */
+    border-radius: 3px;
+
+    /* outer spacing + inner spacing (fix squished top/bottom) */
+    margin: 10px;
+    padding: 8px 12px;
+
+    /* make the whole bar comfortably tall */
+    min-height: 34px;
+
+    /* remove “pillow” feeling */
+    box-shadow: none;
+    -gtk-icon-shadow: none;
+    -webkit-backdrop-filter: none;
 }
 
-#cava {
-    margin-left: 2px;
+/* Sometimes helps: the internal box GTK uses inside waybar */
+#waybar > box {
+    padding: 0;
 }
 
+/* -----------------------------------------------------
+ * Make subcontainers transparent (we want ONE box)
+ * ----------------------------------------------------- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* Keep widgets inline, no per-widget boxes */
+.modules-left > widget,
+.modules-center > widget,
+.modules-right > widget {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base module label spacing (this is the main “less squished” knob) */
+label.module {
+    font-size: 14px;
+    margin: 0;
+    padding: 6px 12px;
+}
+
+/* -----------------------------------------------------
+ * Separators (your “|”)
+ * ----------------------------------------------------- */
+.modules-left > widget:not(:first-child),
+.modules-center > widget:not(:first-child),
+.modules-right > widget:not(:first-child) {
+    border-left: 1px solid alpha(@on_surface, 0.22);
+    margin-left: 10px;
+    padding-left: 10px;
+}
 
 /* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
-
 #workspaces {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding: 5px 5px 5px 5px;
-    margin:10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
+    background: transparent;
+    margin: 0;
+    padding: 0;
 }
 
 #workspaces button {
-    border-radius: 6px;
-    padding:0px 5px 0px 5px;
-    margin:0px 2px 0px 2px;
+    margin: 0 2px;
+    padding: 4px 8px;
+    border-radius: 3px;
 }
 
 #workspaces button.active {
-    background:@primary;
-    color:@on_primary;
+    background: @primary;
+    color: @on_primary;
 }
 
 #workspaces button:hover {
-    background:@primary;
-    color:@on_primary;
-}
-
-/* ------------------------S-----------------------------
- * Tooltips
- * ----------------------------------------------------- */
-
-tooltip {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
-        linear-gradient(#FFFFFF,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.7;
-    margin:10px;
-}
-
-tooltip label {
-    color: @on_surface;
-}
-
-/* -----------------------------------------------------
- * Window
- * ----------------------------------------------------- */
-
-#window {
-}
-
-window#waybar.empty #window {
-    background-color:transparent;
+    background: @primary;
+    color: @on_primary;
 }
 
 /* -----------------------------------------------------
  * Taskbar
  * ----------------------------------------------------- */
-
-#taskbar-left {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    margin:10px;
-    padding: 5px 5px 5px 5px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
-}
-
-#taskbar button.active{
-    background:@primary;
-    color:@on_primary;
+#taskbar {
+    background: transparent;
+    margin: 0;
+    padding: 0;
 }
 
 #taskbar button {
-    border-radius: 10px;
-    padding:0px 5px 0px 5px;
-    margin:0px 2px 0px 2px;
+    margin: 0 2px;
+    padding: 4px 8px;
+    border-radius: 3px;
 }
 
-#taskbar button:hover{
-    background:@primary;
-    color:@on_primary; 
+#taskbar button.active {
+    background: @primary;
+    color: @on_primary;
 }
 
-#taskbar.empty {
+#taskbar button:hover {
+    background: @primary;
+    color: @on_primary;
 }
 
-/* #custom-arch{
+#taskbar.empty {}
+
+/* -----------------------------------------------------
+ * Small spacing tweaks you had
+ * ----------------------------------------------------- */
+#cava { margin-left: 2px; }
+#memory { margin-right: 4px; }
+#temperature { margin-right: 4px; }
+
+/* -----------------------------------------------------
+ * Window title
+ * ----------------------------------------------------- */
+#window {}
+window#waybar.empty #window { background: transparent; }
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+tooltip {
     background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    margin:10px;
-    padding: 5px 5px 5px 5px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
-} */
-
-/* -----------------------------------------------------
- * Audio Right
- * ----------------------------------------------------- */
-
-#audio-right{
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding: 5px 0px 5px 0px;
-    margin: 10px 0px 10px 10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
-}
-
-#pulseaudio {
-    margin-right: 0px;
-}
-
-#pulseaudio:hover {
-}
-
-#pulseaudio.muted {
-}
-
-#bluetooth, #bluetooth.on, #bluetooth.connected {
-}
-
-#bluetooth:hover {
-}
-
-#bluetooth.off {
-}
-
-/* -----------------------------------------------------
- * Idle Inhibitor
- * ----------------------------------------------------- */
-
-#idle_inhibitor {
-}
-
-#idle_inhibitor.activated {
-}
-
-
-/* -----------------------------------------------------
- * Hardware Group
- * ----------------------------------------------------- */
-
-#memory{
-    margin-left: 0px;
-    margin-right: 3px;
-}
-#cpu{
-    margin-left: 0px;
-    margin-right: 0px;
-}
-#temperature{
-    margin-right: 3px;
-}
-
-#disk,#language {
-}
-
-#language {
-}
-
-/* -----------------------------------------------------
- * Power Profiles Daemon
- * ----------------------------------------------------- */
-
-#power-profiles-daemon {
-}
-
-/* -----------------------------------------------------
- * Clock
- * ----------------------------------------------------- */
-
-#clock {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding: 5px 5px 5px 5px;
-    margin: 10px 0px 10px 10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
-}
-
-#clock:hover {
-}
-
-/* -----------------------------------------------------
- * Network
- * ----------------------------------------------------- */
-
-#network {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding: 5px 5px 5px 5px;
-    margin: 10px 0px 10px 10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
-}
-
-#network.ethernet:hover {
-}
-
-#network.wifi:hover {
-}
-
-#network.ethernet {
-}
-
-#network.wifi {
-}
-
-/* -----------------------------------------------------
- * Battery
- * ----------------------------------------------------- */
-
-#power{
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
-        linear-gradient(@primary,@on_primary) border-box;
-    border: 1px solid transparent;	
-    opacity:0.8;
-    padding: 5px 0px 5px 0px;
-    margin: 10px 10px 10px 10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
-}
-
-#battery {
-    margin-right: 0px;
-}
-
-#battery.charging, #battery.plugged {
-}
-
-@keyframes blink {
-    to {
-        background-color: @background;
-        color: @on_surface;
-    }
-}
-
-#battery.critical:not(.charging) {
-}
-
-/* -----------------------------------------------------
- * Tray
- * ----------------------------------------------------- */
-
-#tray {
-
-}
-
-#tray > .passive {
-
-}
-
-#tray > .needs-attention {
-
+    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
+        linear-gradient(#FFFFFF,@on_primary) border-box;
+    border: 1px solid alpha(@on_surface, 0.18)
 }
