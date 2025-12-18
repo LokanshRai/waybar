@@ -24,13 +24,13 @@ window#waybar {
   opacity: 0.9;
 
   /* box shape */
-  border-radius: 8px;
+  border-radius: 1px;
 
   /* outer spacing */
-  margin: 10px;
+  margin: 0px 10px;
 
   /* inner spacing */
-  padding: 4px 8px;
+  padding: 0px 8px;
 
   box-shadow: 1 1 5 1px @shadow;
   -webkit-backdrop-filter: blur(2.4px);
