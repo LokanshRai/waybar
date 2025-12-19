@@ -6,6 +6,11 @@
   border-radius: 0px;
 }
 
+#custom-swaync {
+  font-family: "NotoSansMono Nerd Font";
+  padding-left: 4px;
+}
+
 window#waybar {
   background: transparent;
 }

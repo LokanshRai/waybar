@@ -6,7 +6,7 @@
     "margin-right": 8,
     "spacing": 0,
     "modules-left": ["group/taskbar-left", "group/audio-left"],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-center": ["custom/swaync","hyprland/workspaces"],
     "modules-right": ["group/audio-right", "network", "clock", "group/compute","group/power"],
 
     //left modules
@@ -63,6 +63,26 @@
     },
 
     //middle modules
+    "custom/swaync": {
+        "tooltip": true,
+        "format": "<span size='16pt'>{icon}</span>",
+        "format-icons": {
+          "notification": "󱅫",
+          "none": "󰂜",
+          "dnd-notification": "󰂠",
+          "dnd-none": "󰪓",
+          "inhibited-notification": "󰂛",
+          "inhibited-none": "󰪑",
+          "dnd-inhibited-notification": "󰂛",
+          "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
     "hyprland/workspaces": {
     "format": "{name}",
     "on-click": "activate",
